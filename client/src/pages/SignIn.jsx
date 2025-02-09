@@ -68,11 +68,11 @@ export default function SignIn() {
         </Link>
       </div>
       <p className='text-red-700 mt-5'>
-        {error ? error.message || 'Incorrect email or password!' : ''}
-      </p> 
+        {error ? error.message ||  'Incorrect email or password!' : ''}
+      </p>
       <p className='text-green-700 mt-5'>
         {success && 'Thank you for signing in!'}
-      </p> 
+      </p>
     </div>
   )
 }
