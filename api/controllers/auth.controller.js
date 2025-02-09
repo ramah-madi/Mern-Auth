@@ -12,10 +12,9 @@ export const signup = async (req, res, next) => {
         await newUser.save();
         res.status(201).json({message: "User created successfully"});
     } catch (error) {
-        next(error);
+        next(errorHandler(500, error.message));
     };
-    
-}; 
+};
 
 export const signin = async (req, res, next) => {
     const { email, password } = req.body;
@@ -34,6 +33,6 @@ export const signin = async (req, res, next) => {
         const expiryDate = new Date(Date.now() + 3600000); // 1 hour
         res.cookie('access_token', token, { httpOnly: true, expires: expiryDate }).status(200).json(rest);
     } catch (error) {
-        next(error)
+        next(errorHandler(500, error.message));
     } 
 };
